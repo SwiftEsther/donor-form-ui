@@ -1,3 +1,5 @@
+const apiUrl = "http://localhost:9000/api/donors";
+
 const checkCurrency = (currency, amount) => {
     if(currency === "btc") return convertToBtc(amount);
     else if(currency === "eur") return convertToEuro(amount);
@@ -107,7 +109,7 @@ const handleSubmit = async (e) => {
         }
 
         //API Call
-        fetch("http://localhost:9000/api/donors", {
+        fetch(apiUrl, {
             headers: {"Content-Type": "application/json"},
             mode: "no-cors",
             method: "POST",

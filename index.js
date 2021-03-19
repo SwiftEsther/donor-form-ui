@@ -7,8 +7,8 @@ const checkCurrency = (currency, amount) => {
 }
 
 const getProjectedDonation = (frequency, amount) => {
-    if(frequency === "monthly") return amount * 12;
-    return amount;
+    if(frequency === "monthly") return (amount * 12).toFixed(2);
+    return amount.toFixed(0);
 }
 
 const convertToBtc = (amt) => amt / 58065.40;
@@ -17,12 +17,13 @@ const convertToEuro = (amt) => amt / 1.19;
 
 (function() {
     const donorData = JSON.parse(localStorage.getItem("donor"));
+    console.log(window.location.pathname)
         if(donorData) {
             const currency = donorData.preferredFormOfPayment;
             const amount = checkCurrency(currency, donorData.amount);
             const projectedAmount = getProjectedDonation(donorData.frequency, donorData.amount);
             const projectedAmountInDollars = getProjectedDonation(donorData.frequency, amount);
-            if(window.location.pathname.split(".")[0] === "/confirmation") {
+            if(window.location.pathname.includes("/confirmation.html")) {
                 document.getElementById("confirmation-body").innerHTML=`<div class="summary">
                         <div class="field">
                             <h3 class="label">First Name</h3>
@@ -62,11 +63,11 @@ const convertToEuro = (amt) => amt / 1.19;
                         </div>
                         <div class="field">
                             <h3 class="label">Amount</h3>
-                            <p class="value">${donorData.amount}</p>
+                            <p class="value">${parseFloat(donorData.amount).toFixed(2)}</p>
                         </div>
                         <div class="field">
                             <h3 class="label">Preferred form of payment</h3>
-                            <p class="value">${donorData.preferredFormOfPayment}</p>
+                            <p class="value">${donorData.preferredFormOfPayment.toUpperCase()}</p>
                         </div>
                         <div class="field">
                             <h3 class="label">Frequency of donation</h3>

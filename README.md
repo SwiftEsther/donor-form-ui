@@ -8,4 +8,6 @@ To get the app up on your pc, all you have to do is:\
   - open the `index.html` file in your preferred browser.
 
 # Feedback
-I LOVE to give and receive feedback so please, go ahead...tell me what you think :). [LinkedIn]("http://linkedin.com/in/esther-akinloose") [Twitter]("https://twitter.com/eyiinjuu")
+I LOVE to give and receive feedback so please, go ahead...tell me what you think :).
+- [LinkedIn]("linkedin.com/in/esther-akinloose") 
+- [Twitter]("https://twitter.com/eyiinjuu")
